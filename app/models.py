@@ -5,7 +5,7 @@ class Grade(models.Model):
     g_id = models.IntegerField()
 
 
-class Strudent(models.Model):
+class Student(models.Model):
 
     s_name = models.CharField(max_length=10)
-    s_grade = models.ForeignKey(Grade)
+    s_grade = models.ForeignKey(Grade, on_delete=models.CASCADE, null=True)
