@@ -2,10 +2,11 @@
 from random import randrange, randint
 from io import BytesIO
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import render
 from PIL import Image, ImageDraw, ImageFont
 # from Jango import settings
+from verify_code.tools import get_color, get_code
 
 
 def hello(request):
@@ -36,17 +37,7 @@ def get_verify(request):
 
     fp = BytesIO()
     image.save(fp, 'png')
-    return JsonResponse({'data': fp.getvalue()}, content_type="image/png")
-
-
-# 随机颜色
-def get_color():
-    return randrange(256)
-
-
-# 随机字母
-def get_code():
-    return chr(randint(65, 90))
+    return HttpResponse(fp.getvalue(), content_type='image/png')
 
 
 def login(request):
