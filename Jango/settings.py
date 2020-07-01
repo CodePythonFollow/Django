@@ -38,13 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'Two',
+    'three',
 ]
 
 MIDDLEWARE = [
+    'my_middle.count_ip.CountIp',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -82,7 +85,29 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'code',
         'HOST': '127.0.0.1',
-        
+        'PORT': 3306,
+        'USER': 'root',
+        'PASSWORD': 'code',
+    }
+}
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',  # 数据库缓存
+        'LOCATION': 'my_cache',      # 指定缓存位置
+        'TIMEOUT': 60,
+        # 'OPTIONS': {
+        #     'MAX_ENTRIES': '300',
+        # },
+        # 'KEY_PREFIX': 'rock',
+        # 'VERSION': '1'
+
+    },
+    'redis_cache': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        "OPTIONS": {
+            'CLIENT_CLASS': "django_redis.client.DefaultClient"
+        }
     }
 }
 
@@ -117,10 +142,12 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
