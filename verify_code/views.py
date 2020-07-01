@@ -15,6 +15,8 @@ def hello(request):
 
 
 def get_verify(request):
+    global code
+
     # 创建画布
     image = Image.new(mode="RGB", size=(200, 100), color=(get_color(), get_color(), get_color()))
     # 创建画笔
@@ -30,6 +32,7 @@ def get_verify(request):
         # font = ImageFont.truetype(font=settings.FONT_PATH)
         pen.text(xy=(50*i, 0), text=code[i], font=font, fill=fill)
 
+
     # 增加复杂度颜色
     for i in range(8000):
         fill = (get_color(), get_color(), get_color())
@@ -42,5 +45,6 @@ def get_verify(request):
 
 def login(request):
     if request.method == "POST":
-        pass
+        if ''.join(code).lower() == request.POST.get('code').lower():
+            return HttpResponse("验证成功")
     return render(request, 'login.html')

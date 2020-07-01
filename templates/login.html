@@ -15,8 +15,9 @@
         <br>
         密码：<input type="password">
         <br>
-        <input type="text" placeholder="请输入下面图片的二维码"><br>
+        <input type="text" name="code" placeholder="请输入下面图片的二维码"><br>
         <img src="{% url 'verify:get_verify' %}" alt="">
+        <br>
         <button type="submit">提交</button>
     </form>
 </body>
