@@ -15,13 +15,12 @@ def hello(request):
 
 
 def get_verify(request):
-    global code
 
     # 创建画布
     image = Image.new(mode="RGB", size=(200, 100), color=(get_color(), get_color(), get_color()))
     # 创建画笔
     pen = ImageDraw.Draw(image)
-
+    global code
     code = [get_code() for _ in range(4)]
 
     # 绘制验证码
@@ -31,7 +30,6 @@ def get_verify(request):
         font = ImageFont.truetype(font='statics/fonts/consola.ttf', size=randint(70, 130))
         # font = ImageFont.truetype(font=settings.FONT_PATH)
         pen.text(xy=(50*i, 0), text=code[i], font=font, fill=fill)
-
 
     # 增加复杂度颜色
     for i in range(8000):
