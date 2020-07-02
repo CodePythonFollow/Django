@@ -23,6 +23,6 @@ urlpatterns = [
     path('two/', include(('Two.urls', 'Two'), namespace='two')),
     path('three/', include(('three.urls', 'three'), namespace='three')),
     path('app/', include('app.urls')),
-    path('paginator/', include(('paginator_app.urls', 'paginator_app'), namespace='paginator'),
+    path('paginator/', include(('paginator_app.urls', 'paginator_app'), namespace='paginator')),
     path('verify/', include(('verify_code.urls', 'verify_code'), namespace='verify')),
 ]
