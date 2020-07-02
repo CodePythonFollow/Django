@@ -38,13 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-<<<<<<< HEAD
     'Two',
     'three',
-=======
     'paginator_app',
     'verify_code',
->>>>>>> 750569be8370ed206f930d91d6e8d31fd4a2e3a8
 ]
 
 MIDDLEWARE = [
@@ -63,8 +60,7 @@ ROOT_URLCONF = 'Jango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,7 +86,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'code',
         'HOST': '127.0.0.1',
-<<<<<<< HEAD
         'PORT': 3306,
         'USER': 'root',
         'PASSWORD': 'code',
@@ -113,11 +108,9 @@ CACHES = {
         'LOCATION': 'redis://127.0.0.1:6379/1',
         "OPTIONS": {
             'CLIENT_CLASS': "django_redis.client.DefaultClient"
-        }
-=======
+        },
         'USER': 'root',
         "PASSWORD": 'code',
->>>>>>> 750569be8370ed206f930d91d6e8d31fd4a2e3a8
     }
 }
 
@@ -160,12 +153,11 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-<<<<<<< HEAD
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-=======
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'statics')
 ]
 
 FONT_PATH = os.path.join(BASE_DIR, 'statics/fonts/simple.ttf')
->>>>>>> 750569be8370ed206f930d91d6e8d31fd4a2e3a8
