@@ -25,4 +25,5 @@ urlpatterns = [
     path('app/', include('app.urls')),
     path('paginator/', include(('paginator_app.urls', 'paginator_app'), namespace='paginator')),
     path('verify/', include(('verify_code.urls', 'verify_code'), namespace='verify')),
+    path('richtext/', include(('rich_text.urls', 'rich_text'), namespace='richtext')),
 ]

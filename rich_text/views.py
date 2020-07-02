@@ -1,3 +1,11 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
+
 # Create your views here.
+def hello(request):
+    return HttpResponse("hello")
+
+
+def edit(request):
+    return render(request, 'rich_text.html')

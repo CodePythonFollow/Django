@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'three',
     'paginator_app',
     'verify_code',
+    'rich_text',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -156,8 +158,12 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'statics')
-]
 
 FONT_PATH = os.path.join(BASE_DIR, 'statics/fonts/simple.ttf')
+
+# tinymce默认配置
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 800,
+    'height': 600,
+}
